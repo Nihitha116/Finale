@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SafeRide Helmet Details</title>
+  <title>SafeRide Helmet Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
+      background-color: #f0f2f5;
       margin: 0;
       padding: 0;
     }
@@ -19,18 +19,23 @@
     }
     .container {
       padding: 20px;
+      max-width: 800px;
+      margin: auto;
     }
     .card {
       background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 20px;
       margin-bottom: 20px;
+    }
+    .card h2 {
+      margin-top: 0;
     }
     .status {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      margin: 10px 0;
     }
     .status span {
       font-weight: bold;
@@ -42,9 +47,16 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
     }
     .btn-danger {
       background-color: #e74c3c;
+    }
+    .footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      color: #888;
     }
   </style>
 </head>
@@ -52,7 +64,7 @@
 
 <header>
   <h1>SafeRide Helmet Dashboard</h1>
-  <p>Connected to Smart Helmet</p>
+  <p>Connected to Smart Helmet Accessory</p>
 </header>
 
 <div class="container">
@@ -71,6 +83,7 @@
       <span>Fatigue Level:</span>
       <span id="fatigueLevel">🟢 Normal</span>
     </div>
+    <button class="btn" onclick="simulateSensor()">Simulate Sensor Update</button>
   </div>
 
   <div class="card">
@@ -87,6 +100,10 @@
 
 </div>
 
+<div class="footer">
+  &copy; 2025 SafeRide Technologies
+</div>
+
 <script>
   function sendSOS() {
     alert("🚨 SOS Alert Sent!\nLocation shared with emergency contacts.");
@@ -94,6 +111,25 @@
 
   function startNavigation() {
     alert("🧭 Navigation started.\nVoice guidance activated.");
+  }
+
+  function simulateSensor() {
+    const helmetStatus = document.getElementById("helmetStatus");
+    const crashStatus = document.getElementById("crashStatus");
+    const fatigueLevel = document.getElementById("fatigueLevel");
+
+    // Simulate random sensor values
+    const helmetOn = Math.random() > 0.2;
+    const crashDetected = Math.random() > 0.8;
+    const fatigue = Math.random();
+
+    helmetStatus.textContent = helmetOn ? "✅ Yes" : "❌ No";
+    crashStatus.textContent = crashDetected ? "⚠️ Yes" : "❌ No";
+    fatigueLevel.textContent = fatigue > 0.7 ? "🔴 Drowsy" : fatigue > 0.4 ? "🟡 Moderate" : "🟢 Normal";
+
+    if (crashDetected) {
+      sendSOS();
+    }
   }
 </script>
 
