@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SafeRide Helmet Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .status span {
+      font-weight: bold;
+    }
+    .btn {
+      background-color: #27ae60;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-danger {
+      background-color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SafeRide Helmet Dashboard</h1>
+  <p>Connected to Smart Helmet</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Helmet Status</h2>
+    <div class="status">
+      <span>Helmet Worn:</span>
+      <span id="helmetStatus">✅ Yes</span>
+    </div>
+    <div class="status">
+      <span>Crash Detected:</span>
+      <span id="crashStatus">❌ No</span>
+    </div>
+    <div class="status">
+      <span>Fatigue Level:</span>
+      <span id="fatigueLevel">🟢 Normal</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Emergency Alert</h2>
+    <p>If a crash is detected, location will be sent to emergency contacts.</p>
+    <button class="btn btn-danger" onclick="sendSOS()">Send Manual SOS</button>
+  </div>
+
+  <div class="card">
+    <h2>Navigation</h2>
+    <p>Start hands-free navigation:</p>
+    <button class="btn" onclick="startNavigation()">Start Ride</button>
+  </div>
+
+</div>
+
+<script>
+  function sendSOS() {
+    alert("🚨 SOS Alert Sent!\nLocation shared with emergency contacts.");
+  }
+
+  function startNavigation() {
+    alert("🧭 Navigation started.\nVoice guidance activated.");
+  }
+</script>
+
+</body>
+</html>
